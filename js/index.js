@@ -55,3 +55,10 @@ function logSelection(event) {
   const input = document.querySelector('input');
   input.addEventListener('select', logSelection);
 
+
+  // #6 context menu event
+  const borderColor = document.querySelector('.funBus')
+// console.log(borderColor);
+borderColor.addEventListener('contextmenu', event => {
+    borderColor.style.border = "5px solid #F04443";
+});
