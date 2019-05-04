@@ -1,8 +1,34 @@
 // Your code goes here
 
-// #1 mouseover event listener on nav list
+
 const navList = document.querySelectorAll('nav a');
 // console.log(navList);
+
+
+const destinationBtn = document.querySelectorAll('.btn');
+//console.log(destinationBtn);
+
+
+const headerTwo = document.querySelectorAll('h2');
+// console.log(headerTwo);
+
+
+const heightWindow = document.getElementById('height');
+const widthWindow = document.getElementById('width');
+// console.log(heightWindow);
+// console.log(widthWindow);
+
+
+const borderColor = document.querySelector('.funBus')
+// console.log(borderColor);
+
+
+const headerFour = document.querySelectorAll('.destination h4');
+// console.log(headerThree);
+
+
+
+// #1 mouseover event listener on nav list
 navList.forEach((link, i) => {
     link.addEventListener("mouseover", function() {
         link.style.color = '#B1D5E1';
@@ -14,9 +40,8 @@ navList.forEach((link, i) => {
 });
 
 
+
 // #2 click event listener on buttons
-const destinationBtn = document.querySelectorAll('.btn');
-//console.log(destinationBtn);
 destinationBtn.forEach((btn, i) => {
     btn.addEventListener("click", function() {
         alert('Thank you for clicking!');
@@ -25,24 +50,23 @@ destinationBtn.forEach((btn, i) => {
     );
 });
 
+
+
 // #3 dblclick event listener: text changes color on all h2 elements
-const headerTwo = document.querySelectorAll('h2');
-// console.log(navList);
 headerTwo.forEach((header, i) => {
     header.addEventListener("dblclick", function() {
         header.style.color = '#FFBC4E';
     });
 });
 
+
+
 // #4 A resize event in the footer
-const heightWindow = document.getElementById('height');
-const widthWindow = document.getElementById('width');
-// console.log(heightWindow);
-// console.log(widthWindow);
 window.addEventListener('resize', function() {
     heightWindow.textContent = window.innerHeight;
     widthWindow.textContent = window.innerWidth;
 });
+
 
 
 // #5 Select text in the footer
@@ -56,9 +80,39 @@ function logSelection(event) {
   input.addEventListener('select', logSelection);
 
 
+
   // #6 context menu event
-  const borderColor = document.querySelector('.funBus')
-// console.log(borderColor);
 borderColor.addEventListener('contextmenu', event => {
     borderColor.style.border = "5px solid #F04443";
+});
+
+
+
+// #7 mouseenter event changes buttons to yellow
+destinationBtn.forEach((btn, i) => {
+    btn.addEventListener("mouseenter", function() {
+        btn.style.backgroundColor = "#FFBC4E";
+    });
+});
+
+
+
+// #8 mouseleave event, buttons changes back to original color when the mouse leaves
+destinationBtn.forEach((btn, i) => {
+    btn.addEventListener("mouseleave", function() {
+        btn.style.backgroundColor = "#17A2B8";
+    });
+});
+
+
+
+//#9  mouseout event
+headerFour.forEach((headerFour, i) => {
+    headerFour.addEventListener("mouseout", function(event) {
+        headerFour.style.color = '#FFBC4E';
+
+        setTimeout(function() {
+            headerFour.style.color = "";;
+        }, 300);
+    }, false);
 });
