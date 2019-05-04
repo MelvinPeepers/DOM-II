@@ -25,39 +25,33 @@ destinationBtn.forEach((btn, i) => {
     );
 });
 
-// #3 mouseover event listener: text changes color on all h2 elements
+// #3 dblclick event listener: text changes color on all h2 elements
 const headerTwo = document.querySelectorAll('h2');
 // console.log(navList);
-headerTwo.forEach((link, i) => {
-    link.addEventListener("mouseover", function() {
-        link.style.color = '#FFBC4E';
+headerTwo.forEach((header, i) => {
+    header.addEventListener("dblclick", function() {
+        header.style.color = '#FFBC4E';
+    });
+});
 
-        setTimeout(function() {
-            link.style.color = "#000";
-        }, 600);
-    }, false);
+// #4 A resize event in the footer
+const heightWindow = document.getElementById('height');
+const widthWindow = document.getElementById('width');
+// console.log(heightWindow);
+// console.log(widthWindow);
+window.addEventListener('resize', function() {
+    heightWindow.textContent = window.innerHeight;
+    widthWindow.textContent = window.innerWidth;
 });
 
 
-function zoom(event) {
-    event.preventDefault();
-  
-    if (event.deltaY < 0) {
-      // Zoom in
-      scale *= event.deltaY * -2;
-    }
-    else {
-      // Zoom out
-      scale /= event.deltaY * 2;
-    }
-  
-    // Restrict scale
-    scale = Math.min(Math.max(.125, scale), 4);
-  
-    // Apply scale transform
-    el.style.transform = `scale(${scale})`;
+// #5 Select text in the footer
+function logSelection(event) {
+    const selectText = document.getElementById('selectText');
+    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+    selectText.textContent = `You selected: ${selection}`;
   }
   
-  let scale = 1;
-  const el = document.querySelector('img');
-  el.onwheel = zoom;
+  const input = document.querySelector('input');
+  input.addEventListener('select', logSelection);
+
