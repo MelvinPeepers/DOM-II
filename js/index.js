@@ -41,6 +41,7 @@ const bodyDark = document.querySelector('body');
 navList.forEach((link, i) => {
     link.addEventListener("mouseover", () => {
         link.style.color = '#B1D5E1';
+        event.preventDefault();
 
         setTimeout( () => {
             link.style.color = "#000";
@@ -101,17 +102,19 @@ borderColor.addEventListener('contextmenu', event => {
 destinationBtn.forEach((btn, i) => {
     btn.addEventListener("mouseenter", () => {
         btn.style.backgroundColor = "#FFBC4E";
+        event.stopPropagation();
     });
-});
-
-
-
-// #8 mouseleave event, buttons changes back to original color when the mouse leaves
-destinationBtn.forEach((btn, i) => {
+    // #8 mouseleave event, buttons changes back to original color when the mouse leaves
+    destinationBtn.forEach((btn, i) => {
     btn.addEventListener("mouseleave", () => {
         btn.style.backgroundColor = "#17A2B8";
+        });
     });
 });
+
+
+
+
 
 
 
