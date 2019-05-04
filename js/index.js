@@ -28,12 +28,21 @@ const headerFour = document.querySelectorAll('.destination h4');
 
 
 
+const imagesContent = document.querySelectorAll('.img-content');
+// console.log(imagesContent);
+
+
+const bodyDark = document.querySelector('body');
+// console.log(containerAll);
+
+
+
 // #1 mouseover event listener on nav list
 navList.forEach((link, i) => {
-    link.addEventListener("mouseover", function() {
+    link.addEventListener("mouseover", () => {
         link.style.color = '#B1D5E1';
 
-        setTimeout(function() {
+        setTimeout( () => {
             link.style.color = "#000";
         }, 500);
     }, false);
@@ -43,7 +52,7 @@ navList.forEach((link, i) => {
 
 // #2 click event listener on buttons
 destinationBtn.forEach((btn, i) => {
-    btn.addEventListener("click", function() {
+    btn.addEventListener("click", () => {
         alert('Thank you for clicking!');
     },
         {once: true}
@@ -54,7 +63,7 @@ destinationBtn.forEach((btn, i) => {
 
 // #3 dblclick event listener: text changes color on all h2 elements
 headerTwo.forEach((header, i) => {
-    header.addEventListener("dblclick", function() {
+    header.addEventListener("dblclick", () => {
         header.style.color = '#FFBC4E';
     });
 });
@@ -62,7 +71,7 @@ headerTwo.forEach((header, i) => {
 
 
 // #4 A resize event in the footer
-window.addEventListener('resize', function() {
+window.addEventListener('resize', () => {
     heightWindow.textContent = window.innerHeight;
     widthWindow.textContent = window.innerWidth;
 });
@@ -90,7 +99,7 @@ borderColor.addEventListener('contextmenu', event => {
 
 // #7 mouseenter event changes buttons to yellow
 destinationBtn.forEach((btn, i) => {
-    btn.addEventListener("mouseenter", function() {
+    btn.addEventListener("mouseenter", () => {
         btn.style.backgroundColor = "#FFBC4E";
     });
 });
@@ -99,7 +108,7 @@ destinationBtn.forEach((btn, i) => {
 
 // #8 mouseleave event, buttons changes back to original color when the mouse leaves
 destinationBtn.forEach((btn, i) => {
-    btn.addEventListener("mouseleave", function() {
+    btn.addEventListener("mouseleave", () => {
         btn.style.backgroundColor = "#17A2B8";
     });
 });
@@ -111,8 +120,14 @@ headerFour.forEach((headerFour, i) => {
     headerFour.addEventListener("mouseout", function(event) {
         headerFour.style.color = '#FFBC4E';
 
-        setTimeout(function() {
+        setTimeout( () => {
             headerFour.style.color = "";;
         }, 300);
     }, false);
+});
+
+
+//#10 keydown event that turns the body black
+bodyDark.addEventListener("keydown", (event) => {
+    event.target.style.backgroundColor = "#000";
 });
